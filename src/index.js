@@ -4,17 +4,15 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 // add bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Home from './pages/Home';
-import Login from './pages/Login';
-import SignUp from './pages/Signup';
+import { BrowserRouter } from 'react-router-dom';
+import AppRouter from './router/AppRouter';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <h1>Example</h1>
-    {/* <Home/> */}
-    <Login/>
-    <SignUp/>
+    <BrowserRouter>
+      <AppRouter />
+    </BrowserRouter>
   </React.StrictMode>
 );
 
