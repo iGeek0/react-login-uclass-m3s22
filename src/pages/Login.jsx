@@ -1,7 +1,8 @@
 import bannerLogo from '../images/bg-1.jpg';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { loginService } from '../services/Auth.services';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../context/AuthContext';
 
 function Login() {
 
@@ -9,6 +10,8 @@ function Login() {
         email: '',
         password: ''
     });
+
+    const {isLogin, toggleLogin, setToken} = useContext(AuthContext);
 
     const handleInputChange = (event) => {
         // este va estableciendo el balor de los input al state del formulario
@@ -26,6 +29,8 @@ function Login() {
             .then((response) => {
                 // funciono el login
                 console.log(response);
+                toggleLogin();
+                setToken(response.detalle);
                 Swal.fire({
                     icon:'success',
                     title: 'Mensaje',
@@ -48,7 +53,7 @@ function Login() {
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-md-6 text-center mb-5">
-                        <h2 className="heading-section">Login Ecommerce Web</h2>
+                        <h2 className="heading-section">Login Ecommerce Web({isLogin.toString()})</h2>
                     </div>
                 </div>
                 <div className="row justify-content-center">

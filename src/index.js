@@ -6,13 +6,20 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
 import AppRouter from './router/AppRouter';
+import Footer from './components/Footer';
+import Menu from './components/Menu';
+import { AuthProvider } from './context/AuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <AppRouter />
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Menu />
+        <AppRouter />
+        <Footer />
+      </BrowserRouter>
+    </AuthProvider>
   </React.StrictMode>
 );
 
