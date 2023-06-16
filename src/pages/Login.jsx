@@ -11,7 +11,7 @@ function Login() {
         password: ''
     });
 
-    const {isLogin, toggleLogin, setToken} = useContext(AuthContext);
+    const {setToken, login} = useContext(AuthContext);
 
     const handleInputChange = (event) => {
         // este va estableciendo el balor de los input al state del formulario
@@ -29,8 +29,8 @@ function Login() {
             .then((response) => {
                 // funciono el login
                 console.log(response);
-                toggleLogin();
-                setToken(response.detalle);
+                setToken(response.data.detalle);
+                login();
                 Swal.fire({
                     icon:'success',
                     title: 'Mensaje',

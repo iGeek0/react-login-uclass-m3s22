@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from "react";
+import { listProductsService } from '../../services/Products.services';
 
 
 
@@ -7,25 +8,18 @@ import { useEffect, useState } from "react";
 
 const ProductList = () => {
 
-    const [products, setProducts] = useState([
-        {
-            _id: 1,
-            name: 'Producto 1',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
-            price: 100,
-            image: 'https://picsum.photos/200/300'
-        },
-        {
-            _id: 2,
-            name: 'Producto 2',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
-            price: 200,
-            image: 'https://picsum.photos/200/300'
-        },
-    ]);
+    const [products, setProducts] = useState([]);
 
     useEffect(() => {
-
+        // Aqui deberia ir la carga de los productos reales....
+        listProductsService()
+        .then((res)=>{
+            console.log(res.data.detalle);
+            setProducts(res.data.detalle);
+        })
+        .catch((err)=>{
+            console.log(err);
+        });
     }, []);
 
 
@@ -46,12 +40,12 @@ const ProductList = () => {
                                 return (
                                     <div className="col-sm-6 col-md-4" key={product._id}>
                                         <div className="card mb-4">
-                                            <img src={product.image} className="card-img-top" alt='test' />
+                                            <img src={product.imagen} className="card-img-top" alt='test' />
 
                                             <div className="card-body">
-                                                <h3>${product.price}</h3>
-                                                <h4 className='card-title'>{product.name}</h4>
-                                                <p className="card-text">{product.description}</p>
+                                                <h3>${product.precio}</h3>
+                                                <h4 className='card-title'>{product.nombre}</h4>
+                                                <p className="card-text">{product.descripcion}</p>
 
                                                 <div className="d-grid gap-2">
                                                     <button type="button" className="btn btn-primary btn-sm" onClick={() => addProductToCart(product)}>Agregar al carrito</button>
