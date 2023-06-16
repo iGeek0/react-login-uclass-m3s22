@@ -11,8 +11,16 @@ export const AuthProvider = ({children}) => {
         setIsLogin(!isLogin);
     }
 
+    const login = (data) => {
+        // que hacemos para establecer el login
+    }
+
+    const logout = () => {
+        // que hacemos para establecer el logout
+    }
+
     return (
-        <AuthContext.Provider value={{isLogin, token, toggleLogin, setToken}}>
+        <AuthContext.Provider value={{isLogin, token, toggleLogin, setToken, login, logout}}>
             {children}
         </AuthContext.Provider>
     );
