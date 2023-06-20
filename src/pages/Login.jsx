@@ -28,9 +28,7 @@ function Login() {
         loginService(formLogin)
             .then((response) => {
                 // funciono el login
-                console.log(response);
-                setToken(response.data.detalle);
-                login();
+                login(response.data.detalle);
                 Swal.fire({
                     icon:'success',
                     title: 'Mensaje',

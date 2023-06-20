@@ -6,7 +6,7 @@ import { BsFillCartFill } from 'react-icons/bs';
 
 
 function Menu() {
-    const { isLogin, toggleLogin, userName} = useContext(AuthContext);
+    const { isLogin, logout, userInfo} = useContext(AuthContext);
 
     let publicMenu = () => {
         return (
@@ -37,8 +37,8 @@ function Menu() {
                     </div>
                     <div className="header-side-2">
                         <NavLink to="/checkout"><BsFillCartFill /></NavLink>
-                        <NavLink to="/profile" style={{ "textDecoration": "underline" }}>{userName}</NavLink>
-                        <button className='btn btn-light btn-sm ms-2' onClick={toggleLogin}>Logout</button>
+                        <NavLink to="/profile" style={{ "textDecoration": "underline" }}>{userInfo.nombre}</NavLink>
+                        <button className='btn btn-light btn-sm ms-2' onClick={logout}>Logout</button>
                     </div>
                 </div>
             </header>
