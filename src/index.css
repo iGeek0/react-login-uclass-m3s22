@@ -124,6 +124,12 @@
 }
 
 
+
+
+.container-pages {
+  min-height: 80vh;
+}
+
 footer {
   background-color: rgba(0, 0, 0, .85);
   color: #fff;
