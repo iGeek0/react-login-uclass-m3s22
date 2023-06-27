@@ -50,7 +50,7 @@ const Checkout = () => {
         <div className="container-pages">
             <div className="p-4">
                 <div className="row">
-                    <div className="col-md-5">
+                    <div className="col-md-7">
                         {products.length === 0 && <div className="alert alert-warning">No hay productos en el carrito</div>}
                         {products.map((product) => {
                             return (
@@ -77,7 +77,7 @@ const Checkout = () => {
                     </div>
                     {
                         products.length !== 0 &&
-                        <div className="col-md-7">
+                        <div className="col-md-5">
                             <div className="card">
                                 <div className="card-body">
                                     <h5 className="card-title">Resumen de compra</h5>
@@ -89,9 +89,9 @@ const Checkout = () => {
                                             <p>Total <b> {total} USD</b></p>
                                         </div>
                                     </div>
-                                    <div className="text-center">
+                                    <div>
                                         <PayPalScriptProvider options={{ clientId:"AbIfbJloVUvlb1vm3GLLfdH3rjGu-oLlsKV8FKwBfxZG_DT21RHpH-S79kme3yO5VSNU3_B6-L-9VgWU"}}>
-                                            <PayPalButtons
+                                            <PayPalButtons style={{width: "100%"}}
                                                 forceReRender={[total]}
                                                 createOrder={(data, actions) => {
                                                     return actions.order.create({

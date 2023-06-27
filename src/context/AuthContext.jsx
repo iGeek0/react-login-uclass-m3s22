@@ -1,9 +1,12 @@
 import { createContext, useState, useEffect } from 'react';
 import jwt_decode from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+
+    const navigate = useNavigate();
 
     const [isLogin, setIsLogin] = useState(false);
     const [token, setToken] = useState(null);
@@ -37,6 +40,7 @@ export const AuthProvider = ({ children }) => {
 
         window.localStorage.setItem("userInfo", JSON.stringify(userInfoRaw));
         window.localStorage.setItem("token", tkn);
+        navigate("/products");
 
     }
 
@@ -46,6 +50,7 @@ export const AuthProvider = ({ children }) => {
         setToken(null);
         window.localStorage.removeItem("userInfo");
         window.localStorage.removeItem("token");
+        navigate("/products");
     }
 
     return (

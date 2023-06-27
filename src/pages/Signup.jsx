@@ -1,4 +1,3 @@
-import banerLogo from '../images/bg-2.jpg';
 import { useState } from 'react';
 import { registerService } from '../services/Auth.services';
 import Swal from 'sweetalert2';

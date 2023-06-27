@@ -5,4 +5,8 @@ const listProductsService = async ()=>{
     return await axios.get(`${URL_WS}/productos`);
 };
 
-export {listProductsService};
+const getProduct = async (id) => {
+    return await axios.get(`${URL_WS}/productos?id=${id}`);
+};
+
+export {listProductsService, getProduct};

@@ -13,13 +13,13 @@ const ProductList = () => {
     useEffect(() => {
         // Aqui deberia ir la carga de los productos reales....
         listProductsService()
-        .then((res)=>{
-            console.log(res.data.detalle);
-            setProducts(res.data.detalle);
-        })
-        .catch((err)=>{
-            console.log(err);
-        });
+            .then((res) => {
+                console.log(res.data.detalle);
+                setProducts(res.data.detalle);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     }, []);
 
 
@@ -78,6 +78,14 @@ const ProductList = () => {
                             })}
                         </div>
 
+                    </div>
+                    <div className="col-md-2">
+                        <h3>Ejemplo de side content</h3>
+                        <p>
+                            Pariatur esse ullamco nostrud fugiat aute tempor. Anim excepteur qui reprehenderit pariatur fugiat ex sunt adipisicing aliqua occaecat. Commodo tempor sit sint laboris ullamco ex sit. Dolore dolor occaecat ipsum eiusmod amet excepteur excepteur veniam.
+
+                            Qui amet voluptate sunt commodo id mollit nostrud sint. Ea eiusmod duis incididunt deserunt. Dolore anim pariatur eiusmod enim ea amet voluptate esse qui officia duis eiusmod ad. Nulla do pariatur consectetur excepteur in adipisicing aliqua. Ut ea incididunt do in deserunt. Ut excepteur voluptate esse ex officia.
+                        </p>
                     </div>
                 </div>
 
